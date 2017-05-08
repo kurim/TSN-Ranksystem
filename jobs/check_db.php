@@ -1,6 +1,6 @@
 <?PHP
 function check_db($mysqlcon,$lang,$dbname,$timezone,$currvers,$logpath) {
-	$newversion = '1.2.2';
+	$newversion = '1.2.3';
 	enter_logfile($logpath,$timezone,5,"Check Ranksystem database for updates.");
 	
 	function set_new_version($mysqlcon,$dbname,$timezone,$newversion,$logpath) {
@@ -419,6 +419,18 @@ function check_db($mysqlcon,$lang,$dbname,$timezone,$currvers,$logpath) {
 			}
 			if($mysqlcon->exec("CREATE TABLE $dbname.addon_assign_groups (uuid varchar(29) CHARACTER SET utf8 COLLATE utf8_unicode_ci, grpids varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci)") === false) { } else {
 				enter_logfile($logpath,$timezone,4,"    [1.2.2] Created table addon_assign_groups successfully.");
+			}
+		}
+		if(version_compare($currvers, '1.2.2', '<=')) {
+		if($mysqlcon->exec("ALTER TABLE $dbname.config ADD (shownoch tinyint(1) NOT NULL default '0')") === false) { } else {
+				if($mysqlcon->exec("UPDATE $dbname.config set shownoch='0'") === false) { } else {
+					enter_logfile($logpath,$timezone,4,"    [1.2.3] Add Status modifyer.");
+				}
+			}
+		if($mysqlcon->exec("ALTER TABLE $dbname.config ADD (showtop tinyint(1) NOT NULL default '0')") === false) { } else {
+				if($mysqlcon->exec("UPDATE $dbname.config set showtop='0'") === false) { } else {
+					enter_logfile($logpath,$timezone,4,"    [1.2.3] Add Showtop modifyer.");
+				}
 			}
 		}
 		$currvers = set_new_version($mysqlcon,$dbname,$timezone,$newversion,$logpath);

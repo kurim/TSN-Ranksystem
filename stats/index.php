@@ -561,7 +561,11 @@ require_once('nav.php');
 				foreach($server_usage as $chart_value) {
 					$chart_time = date('Y-m-d H:i',$chart_value['timestamp']);
 					$channel = $chart_value['channel'] - $chart_value['clients'];
+					if ($shownoch == 0){
+					$chart_data = $chart_data . '{ y: \''.$chart_time.'\', a: '.$chart_value['clients'].' }, ';
+					}else{
 					$chart_data = $chart_data . '{ y: \''.$chart_time.'\', a: '.$chart_value['clients'].', b: '.$channel.', c: '. $chart_value['channel'].' }, ';
+					}
 				}
 				$chart_data = substr($chart_data, 0, -2);
 				echo $chart_data;
@@ -572,9 +576,14 @@ require_once('nav.php');
 		  hideHover: 'auto',
 		  hoverCallback:  
 				function (index, options, content, row) {
-					return "<b>" + row.y + "</b><br><div class='morris-hover-point' style='color:#2677B5'>Clients: " + row.a + "</div><div class='morris-hover-point' style='color:#868F96'>Channel: " + (row.b + row.a) + "</div>";
+					<?php if ($shownoch == 0){ 
+						echo 'return "<b>" + row.y + "</b><br><div class=\'morris-hover-point\' style=\'color:#2677B5\'>Clients: " + row.a + "</div>";';
+					}else{ 
+						echo 'return "<b>" + row.y + "</b><br><div class=\'morris-hover-point\' style=\'color:#2677B5\'>Clients: " + row.a + "</div><div class=\'morris-hover-point\' style=\'color:#868F96\'>Channel: " + (row.b + row.a) + "</div>";';
+					}
+					?>
 				} ,
-		  labels: ['Clients', 'Channel']
+		  labels: [<?php if ($shownoch == 0){ echo "'Clients'";}else{ echo "'Clients','Channel'";} ?>]
 		});
 	</script>
 </body>

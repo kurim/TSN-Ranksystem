@@ -28,7 +28,24 @@ $top10_idle_sum = 0;
 
 foreach ($db_arr as $client) {
 	$sgroups  = explode(",", $client['cldgroup']);
+	if ($showtop == 0){
 	if (!in_array($client['uuid'], $exceptuuid) && !array_intersect($sgroups, $exceptgroup)) {
+		if ($count10 == 10) break;
+		if ($substridle == 1) {
+			$hours = $client['count_month'] - $client['idle_month'];
+		} else {
+			$hours = $client['count_month'];
+		}
+		$top10_sum = round(($client['count_month']/3600)) + $top10_sum;
+		$top10_idle_sum = round(($client['idle_month']/3600)) + $top10_idle_sum;
+		$client_data[$count10] = array(
+		'name'		=>	$client['name'],
+		'count'		=>	$hours,
+		'online'	=>	$client['online']
+		);
+		$count10++;
+	}
+	}else{
 		if ($count10 == 10) break;
 		if ($substridle == 1) {
 			$hours = $client['count_month'] - $client['idle_month'];

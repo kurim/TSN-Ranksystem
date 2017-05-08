@@ -58,8 +58,13 @@ if (isset($_POST['update']) && $_SESSION['username'] == $webuser && $_SESSION['p
 	if (isset($_POST['showcolsg'])) $showcolsg = 1; else $showcolsg = 0;
 	if (isset($_POST['showhighest'])) $showhighest = 1; else $showhighest = 0;
 	if (isset($_POST['showgrpsince'])) $showgrpsince = 1; else $showgrpsince = 0;
+	if (isset($_POST['shownoch'])) $shownoch = 1; else $shownoch = 0;
+	if (isset($_POST['showtop'])) $showtop = 1; else $showtop = 0;
 	if (isset($_POST['shownav'])) $shownav = 1; else $shownav = 0;
-	if ($mysqlcon->exec("UPDATE $dbname.config set showexcld='$showexcld',showcolrg='$showcolrg',showcolcld='$showcolcld',showcoluuid='$showcoluuid',showcoldbid='$showcoldbid',showcolls='$showcolls',showcolot='$showcolot',showcolit='$showcolit',showcolat='$showcolat',showcolas='$showcolas',showcolnx='$showcolnx',showcolsg='$showcolsg',showhighest='$showhighest',showgrpsince='$showgrpsince',shownav='$shownav'") === false) {
+	if ($mysqlcon->exec("UPDATE $dbname.config set showexcld='$showexcld',showcolrg='$showcolrg',showcolcld='$showcolcld',
+						showcoluuid='$showcoluuid',showcoldbid='$showcoldbid',showcolls='$showcolls',showcolot='$showcolot',showcolit='$showcolit',
+						showcolat='$showcolat',showcolas='$showcolas',showcolnx='$showcolnx',showcolsg='$showcolsg',showhighest='$showhighest',
+						showgrpsince='$showgrpsince',shownoch='$shownoch',showtop='$showtop',shownav='$shownav'") === false) {
         $err_msg = print_r($mysqlcon->errorInfo(), true);
 		$err_lvl = 3;
     } else {
@@ -224,6 +229,26 @@ if (isset($_POST['update']) && $_SESSION['username'] == $webuser && $_SESSION['p
 										echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="showhighest" value="',$showhighest,'">';
 									} else {
 										echo '<input class="switch-animate" type="checkbox" data-size="mini" name="showhighest" value="',$showhighest,'">';
+									} ?>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wishnochdesc"><?php echo $lang['wishnoch']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
+								<div class="col-sm-8">
+									<?PHP if ($shownoch == 1) {
+										echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="shownoch" value="',$shownoch,'">';
+									} else {
+										echo '<input class="switch-animate" type="checkbox" data-size="mini" name="shownoch" value="',$shownoch,'">';
+									} ?>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wishshowtopdesc"><?php echo $lang['wishshowtop']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
+								<div class="col-sm-8">
+									<?PHP if ($showtop == 1) {
+										echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="showtop" value="',$showtop,'">';
+									} else {
+										echo '<input class="switch-animate" type="checkbox" data-size="mini" name="showtop" value="',$showtop,'">';
 									} ?>
 								</div>
 							</div>
@@ -469,6 +494,38 @@ if (isset($_POST['update']) && $_SESSION['username'] == $webuser && $_SESSION['p
       </div>
       <div class="modal-body">
         <?php echo $lang['wishhiclddesc']; ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?PHP echo $lang['stnv0002']; ?></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="wishnochdesc" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><?php echo $lang['wishnoch']; ?></h4>
+      </div>
+      <div class="modal-body">
+        <?php echo $lang['wishnochdesc']; ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?PHP echo $lang['stnv0002']; ?></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="wishshowtopdesc" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><?php echo $lang['wishshowtop']; ?></h4>
+      </div>
+      <div class="modal-body">
+        <?php echo $lang['wishshowtopdesc']; ?>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"><?PHP echo $lang['stnv0002']; ?></button>

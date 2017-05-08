@@ -133,6 +133,8 @@ if (isset($mysqlcon) && ($config = $mysqlcon->query("SELECT * FROM config"))) {
 		$resetexcept	 = $config[0]['resetexcept'];
 		$upchannel		 = $config[0]['upchannel'];
 		$avatar_delay	 = $config[0]['avatar_delay'];
+		$shownoch	     = $config[0]['shownoch'];
+		$showtop	     = $config[0]['showtop'];
 	}
 }
 if(!isset($language) || $language == "en") {
