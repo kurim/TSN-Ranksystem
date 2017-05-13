@@ -482,4 +482,6 @@ $lang['wiupuid']			= "Получатель обновлений";
 $lang['wiupuiddesc']		= "Укажите через запятую UID Teamspeak 3 пользователей, которые будут проинформированы о доступных обновлениях RankSystem, посредством отправки приватного сообщения через TeamSpeak.";
 $lang['wivlang']			= "Язык";
 $lang['wivlangdesc']		= "Выберите язык, используемый системой RankSystem по умолчанию.<br><br>Язык сайта по-прежнему будет доступен для переключения всем пользователям.";
+$lang['wiservericon']		= "WebsiteIcon (default/TS3)?";
+$lang['wiservericondesc']	= "Should the TS-Server Icon used as Websiteicon.<br>off = use defaultIcon (TSN)<br>on = use TS3 Icon";
 ?>

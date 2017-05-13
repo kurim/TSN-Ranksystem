@@ -480,4 +480,6 @@ $lang['wiupuid']			= "Recipient";
 $lang['wiupuiddesc']		= "A comma separate list of unique Client-IDs, which shoud be informed on the TeamSpeak via private message for available updates.";
 $lang['wivlang']			= "Language";
 $lang['wivlangdesc']		= "Choose a default language for the Ranksystem.<br><br>The language is also selectable on the websites for the users and will be stored for the session.";
+$lang['wiservericon']		= "WebsiteIcon (default/TS3)?";
+$lang['wiservericondesc']	= "Should the TS-Server Icon used as Websiteicon.<br>off = use defaultIcon (TSN)<br>on = use TS3 Icon";
 ?>

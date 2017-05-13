@@ -1,4 +1,4 @@
-﻿<?PHP
+﻿﻿<?PHP
 session_start();
 
 require_once('../other/config.php');
@@ -212,55 +212,59 @@ if (isset($_POST['update']) && $_SESSION['username'] == $webuser && $_SESSION['p
 							</div>
 						</div>
 						<div class="col-md-6">
-							<div class="form-group">
-								<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wishexclddesc"><?php echo $lang['wishexcld']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
-								<div class="col-sm-8">
-									<?PHP if ($showexcld == 1) {
-										echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="showexcld" value="',$showexcld,'">';
-									} else {
-										echo '<input class="switch-animate" type="checkbox" data-size="mini" name="showexcld" value="',$showexcld,'">';
-									} ?>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wishhiclddesc"><?php echo $lang['wishhicld']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
-								<div class="col-sm-8">
-									<?PHP if ($showhighest == 1) {
-										echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="showhighest" value="',$showhighest,'">';
-									} else {
-										echo '<input class="switch-animate" type="checkbox" data-size="mini" name="showhighest" value="',$showhighest,'">';
-									} ?>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wishnochdesc"><?php echo $lang['wishnoch']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
-								<div class="col-sm-8">
-									<?PHP if ($shownoch == 1) {
-										echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="shownoch" value="',$shownoch,'">';
-									} else {
-										echo '<input class="switch-animate" type="checkbox" data-size="mini" name="shownoch" value="',$shownoch,'">';
-									} ?>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wishshowtopdesc"><?php echo $lang['wishshowtop']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
-								<div class="col-sm-8">
-									<?PHP if ($showtop == 1) {
-										echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="showtop" value="',$showtop,'">';
-									} else {
-										echo '<input class="switch-animate" type="checkbox" data-size="mini" name="showtop" value="',$showtop,'">';
-									} ?>
-								</div>
-							</div>
-							<div class="row">&nbsp;</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wishnavdesc"><?php echo $lang['wishnav']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
-								<div class="col-sm-8">
-									<?PHP if ($shownav == 1) {
-										echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="shownav" value="',$shownav,'">';
-									} else {
-										echo '<input class="switch-animate" type="checkbox" data-size="mini" name="shownav" value="',$shownav,'">';
-									} ?>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div class="form-group">
+										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wishexclddesc"><?php echo $lang['wishexcld']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
+										<div class="col-sm-8">
+											<?PHP if ($showexcld == 1) {
+												echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="showexcld" value="',$showexcld,'">';
+											} else {
+												echo '<input class="switch-animate" type="checkbox" data-size="mini" name="showexcld" value="',$showexcld,'">';
+											} ?>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wishhiclddesc"><?php echo $lang['wishhicld']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
+										<div class="col-sm-8">
+											<?PHP if ($showhighest == 1) {
+												echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="showhighest" value="',$showhighest,'">';
+											} else {
+												echo '<input class="switch-animate" type="checkbox" data-size="mini" name="showhighest" value="',$showhighest,'">';
+											} ?>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wishnochdesc"><?php echo $lang['wishnoch']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
+										<div class="col-sm-8">
+											<?PHP if ($shownoch == 1) {
+												echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="shownoch" value="',$shownoch,'">';
+											} else {
+												echo '<input class="switch-animate" type="checkbox" data-size="mini" name="shownoch" value="',$shownoch,'">';
+											} ?>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wishshowtopdesc"><?php echo $lang['wishshowtop']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
+										<div class="col-sm-8">
+											<?PHP if ($showtop == 1) {
+												echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="showtop" value="',$showtop,'">';
+											} else {
+												echo '<input class="switch-animate" type="checkbox" data-size="mini" name="showtop" value="',$showtop,'">';
+											} ?>
+										</div>
+									</div>
+									<div class="row">&nbsp;</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wishnavdesc"><?php echo $lang['wishnav']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
+										<div class="col-sm-8">
+											<?PHP if ($shownav == 1) {
+												echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="shownav" value="',$shownav,'">';
+											} else {
+												echo '<input class="switch-animate" type="checkbox" data-size="mini" name="shownav" value="',$shownav,'">';
+											} ?>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

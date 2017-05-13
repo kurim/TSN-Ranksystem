@@ -481,4 +481,6 @@ $lang['wiupuid']			= "Recipiente";
 $lang['wiupuiddesc']		= "La lista di utenti (dovrà essere inserito l'ID unico dell'utente(i) es. YdicUS4yofeBEONN7J3FeLic8b4=,RiGqBf8hU1kbCV/vwfPL0rzAwZQ=), che verranno informati di eventuali aggiornamenti attraverso un messaggio privato su Teamspeak.";
 $lang['wivlang']			= "Lingua";
 $lang['wivlangdesc']		= "Scegli la lingua di default del Ranksystem.<br><br>La lingua è inoltre selezionabile dal sito e viene salvata per tutta la sessione.";
+$lang['wiservericon']		= "WebsiteIcon (default/TS3)?";
+$lang['wiservericondesc']	= "Should the TS-Server Icon used as Websiteicon.<br>off = use defaultIcon (TSN)<br>on = use TS3 Icon";
 ?>

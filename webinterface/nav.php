@@ -5,7 +5,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="version" content="<?PHP echo $currvers; ?>">
-	<link rel="icon" href="../icons/rs.png">
+	<?php if ($servericon == 0){
+	echo '<link rel="icon" href="../tsicons/rs.png">';
+	}else{
+	echo '<link rel="icon" href="../tsicons/servericon.png">';
+	}
+	?>
 	<title>TS-N.NET Ranksystem</title>
 	<link href="../libs/combined_wi.css?v=<?PHP echo $currvers; ?>" rel="stylesheet">
 	<script src="../libs/combined_wi.js?v=<?PHP echo $currvers; ?>"></script>

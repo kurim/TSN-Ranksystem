@@ -484,4 +484,6 @@ $lang['wiupuid']			= "Empfänger";
 $lang['wiupuiddesc']		= "Eine Komma getrennte Liste von eindeutigen Client-IDs, welche via privater Textnachricht auf dem TeamSpeak über ein Update informiert werden sollen.";
 $lang['wivlang']			= "Sprache";
 $lang['wivlangdesc']		= "Wähle die Standardsprache des Ranksystems.<br><br>Die Sprache kann über die Webseite für jeden Besucher übersteuert werden und wird dann für die laufende Sitzung gespeichert.";
+$lang['wiservericon']		= "WebsiteIcon (default/TS3)?";
+$lang['wiservericondesc']	= "Soll das TS-Server Icon als Websiteicon verwendet werden<br>off = defaultIcon (TSN)verwenden<br>on = TS3 Icon verwenden";
 ?>
