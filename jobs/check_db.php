@@ -422,19 +422,34 @@ function check_db($mysqlcon,$lang,$dbname,$timezone,$currvers,$logpath) {
 			}
 		}
 		if(version_compare($currvers, '1.2.2', '<=')) {
-		if($mysqlcon->exec("ALTER TABLE $dbname.config ADD (shownoch tinyint(1) NOT NULL default '0')") === false) { } else {
+			if($mysqlcon->exec("ALTER TABLE $dbname.config ADD (shownoch tinyint(1) NOT NULL default '0')") === false) { } else {
 				if($mysqlcon->exec("UPDATE $dbname.config set shownoch='0'") === false) { } else {
 					enter_logfile($logpath,$timezone,4,"    [1.2.3] Add Status modifyer.");
 				}
 			}
-		if($mysqlcon->exec("ALTER TABLE $dbname.config ADD (showtop tinyint(1) NOT NULL default '0')") === false) { } else {
+			if($mysqlcon->exec("ALTER TABLE $dbname.config ADD (showtop tinyint(1) NOT NULL default '0')") === false) { } else {
 				if($mysqlcon->exec("UPDATE $dbname.config set showtop='0'") === false) { } else {
 					enter_logfile($logpath,$timezone,4,"    [1.2.3] Add Showtop modifyer.");
 				}
 			}
-		if($mysqlcon->exec("ALTER TABLE $dbname.config ADD (iconcheck tinyint(1) NOT NULL default '0')") === false) { } else {
+			if($mysqlcon->exec("ALTER TABLE $dbname.config ADD (iconcheck tinyint(1) NOT NULL default '0')") === false) { } else {
 				if($mysqlcon->exec("UPDATE $dbname.config set iconcheck='0'") === false) { } else {
 					enter_logfile($logpath,$timezone,4,"    [1.2.3] Add iconcheck modifyer.");
+				}
+			}
+			if($mysqlcon->exec("ALTER TABLE $dbname.config ADD (analyticscheck tinyint(1) NOT NULL default '0')") === false) { } else {
+				if($mysqlcon->exec("UPDATE $dbname.config set analyticscheck='0'") === false) { } else {
+					enter_logfile($logpath,$timezone,4,"    [1.2.3] Add analyticscheck modifyer.");
+				}
+			}
+			if($mysqlcon->exec("ALTER TABLE $dbname.config ADD (analyticsid  VARCHAR(13) UNSIGNED NOT NULL)") === false) { } else {
+				if($mysqlcon->exec("UPDATE $dbname.config set analyticsid=''") === false) { } else {
+					enter_logfile($logpath,$timezone,4,"    [1.2.3] Add analyticsid field to config.");
+				}
+			}
+			if($mysqlcon->exec("ALTER TABLE $dbname.config ADD (pagename  VARCHAR(255) UNSIGNED NOT NULL default 'TS-N.NET Ranksystem')") === false) { } else {
+				if($mysqlcon->exec("UPDATE $dbname.config set pagename=''") === false) { } else {
+					enter_logfile($logpath,$timezone,4,"    [1.2.3] Add pagename field to config.");
 				}
 			}
 		}

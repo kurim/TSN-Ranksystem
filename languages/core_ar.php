@@ -482,4 +482,10 @@ $lang['wivlang']			= "Language";
 $lang['wivlangdesc']		= "Choose a default language for the Ranksystem.<br><br>The language is also selectable on the websites for the users and will be stored for the session.";
 $lang['wiservericon']		= "WebsiteIcon (default/TS3)?";
 $lang['wiservericondesc']	= "Should the TS-Server Icon used as Websiteicon.<br>off = use defaultIcon (TSN)<br>on = use TS3 Icon";
+$lang['wianalytics']		= "Google Analystics";
+$lang['wianalyticsdesc']	= "Turn Google Analystics on or off";
+$lang['wianalyticsid']		= "Google Analystics ID";
+$lang['wianalyticsiddesc']	= "Enter your Google Analystics ID (UA-xxxxxxxx-x)";
+$lang['wipage']				= "Pagename";
+$lang['wipagedesc']		= "Change Pagename<br>Hint: If you change the name it will be \"powered by TS-N.NET Ranksystem\"<br>instead off \"TS-N.NET Ranksystem\"";
 ?>

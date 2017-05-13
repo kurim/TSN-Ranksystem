@@ -10,8 +10,12 @@
 	}else{
 	echo '<link rel="icon" href="../tsicons/servericon.png">';
 	}
+	if ($pagename !="TS-N.NET Ranksystem"){
+		echo "<title>$pagename powered by TS-N.NET Ranksystem</title>";
+	}else{
+		echo "<title>TS-N.NET Ranksystem</title>";
+	}
 	?>
-	<title>TS-N.NET Ranksystem</title>
 	<link href="../libs/combined_wi.css?v=<?PHP echo $currvers; ?>" rel="stylesheet">
 	<script src="../libs/combined_wi.js?v=<?PHP echo $currvers; ?>"></script>
 	<script>

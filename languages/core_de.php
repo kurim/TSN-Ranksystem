@@ -270,6 +270,15 @@ $lang['stri0016']			= "<a href=\"//iraqgaming.net/\" target=\"_blank\">DeStRoYzR
 $lang['stri0017']			= "<a href=\"//whitecs.ro/\" target=\"_blank\">SakaLuX</a> - für die Initiierung der rumänischen Übersetzung";
 $lang['stri0018']			= "<a href=\"//r4p3.net/members/0x0539.5476/\" target=\"_blank\">0x0539</a> - für die Initiierung der niederländischen Übersetzung";
 $lang['stri0019']			= "<a href=\"//umazinggames.fr/\" target=\"_blank\">Quentinti</a> - für die französische Übersetzung";
+$lang['stri0020']			= "Einsatz von Google Analytics";
+$lang['stri0021']			= "Diese Website benutzt Google Analytics, einen Webanalysedienst der Googe Inc. (Google).
+							   Google Analytics verwendet sog. Cookies, Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglicht.
+							   Die durch den Cookie erzeugten Informationen über Ihre Benutzung diese Website (einschließlich Ihrer IP-Adresse) wird an einen Server der Google in den USA übertragen und dort gespeichert.
+							   Google wird diese Informationen benutzen, um die Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten für die Websitebetreiber zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen zu erbringen.
+							   Auch wird Google diese Informationen gegebenenfalls an Dritte übertragen, sofern dies gesetzlich vorgeschrieben oder soweit Dritte diese Daten im Auftrag von Google verarbeiten.
+							   Google wird in keinem Fall Ihre IP-Adresse mit anderen Daten der Google in Verbindung bringen. Sie können die Installation der Cookies durch eine entsprechende Einstellung Ihrer Browser Software verhindern.
+							   Wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website voll umfänglich nutzen können.
+							   Durch die Nutzung dieser Website erklären Sie sich mit der Bearbeitung der über Sie erhobenen Daten durch Google in der zuvor beschriebenen Art und Weise und zu dem zuvor benannten Zweck einverstanden.";
 $lang['sttw0001']			= "Top User";
 $lang['sttw0002']			= "der Woche";
 $lang['sttw0003']			= "mit %s Stunden online Zeit";
@@ -486,4 +495,10 @@ $lang['wivlang']			= "Sprache";
 $lang['wivlangdesc']		= "Wähle die Standardsprache des Ranksystems.<br><br>Die Sprache kann über die Webseite für jeden Besucher übersteuert werden und wird dann für die laufende Sitzung gespeichert.";
 $lang['wiservericon']		= "WebsiteIcon (default/TS3)?";
 $lang['wiservericondesc']	= "Soll das TS-Server Icon als Websiteicon verwendet werden<br>off = defaultIcon (TSN)verwenden<br>on = TS3 Icon verwenden";
+$lang['wianalytics']		= "Google Analystics";
+$lang['wianalyticsdesc']	= "Google Analystics ein oder ausschalten";
+$lang['wianalyticsid']		= "Google Analystics ID";
+$lang['wianalyticsiddesc']	= "Tragen Sie hier ihre Google Analystics ID ein (UA-xxxxxxxx-x)";
+$lang['wipage']				= "Seitenname";
+$lang['wipagedesc']			= "Ändert den Seitenname<br>Hinweis: Wenn dieser geändert wird wird \"TS-N.NET Ranksystem\"<br>zu \"powered by TS-N.NET Ranksystem\"";
 ?>

@@ -134,8 +134,11 @@ if (isset($mysqlcon) && ($config = $mysqlcon->query("SELECT * FROM config"))) {
 		$upchannel		 = $config[0]['upchannel'];
 		$avatar_delay	 = $config[0]['avatar_delay'];
 		$shownoch	     = $config[0]['shownoch'];
-		$showtop		 = $config[0]['showtop'];
+		$showtop	     = $config[0]['showtop'];
 		$servericon      = $config[0]['iconcheck'];
+		$analytics		 = $config[0]['analyticscheck'];
+		$analyticsid     = $config[0]['analyticsid'];
+		$pagename		 = $config[0]['pagename'];
 	}
 }
 if(!isset($language) || $language == "en") {

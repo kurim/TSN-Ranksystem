@@ -80,6 +80,15 @@ require_once('nav.php');
 						<br>
 					</div>
 				</div>
+				<?PHP if($analytics == 1){ ?>
+				<div class="row">
+					<div class="col-lg-12">
+						<h4><strong><span class="text-info"><?PHP echo $lang['stri0020']; ?></span></strong></h4>
+						<p><?PHP echo $lang['stri0021']; ?></p>
+						<br>
+					</div>
+				</div>	
+				<?PHP } ?>
 			</div>
 		</div>
 	</div>

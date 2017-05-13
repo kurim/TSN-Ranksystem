@@ -10,11 +10,28 @@
 	}else{
 	echo '<link rel="icon" href="../tsicons/servericon.png">';
 	}
+	if ($pagename !="TS-N.NET Ranksystem"){
+		echo "<title>$pagename powered by TS-N.NET Ranksystem</title>";
+	}else{
+		echo "<title>TS-N.NET Ranksystem</title>";
+	}
 	?>
-	<title>TS-N.NET Ranksystem</title>
 	<link href="../libs/combined_stats.css?v=<?PHP echo $currvers; ?>" rel="stylesheet">
 	<script src="../libs/combined_stats.js?v=<?PHP echo $currvers; ?>"></script>
 <?PHP
+	if($analytics == 1){
+?>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	  ga('create', '<?php echo $analyticsid ?>, 'auto');
+	  ga('send', 'pageview');
+	</script>
+<?php
+	}
+
 	if(isset($shownav) && $shownav == 0) { ?>
 	<style>
 		body{margin-top:0px!important}
