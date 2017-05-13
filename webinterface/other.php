@@ -51,7 +51,8 @@ if (isset($_POST['update']) && $_SESSION['username'] == $webuser && $_SESSION['p
 	$updateinfotime = $_POST['updateinfotime'];
 	$uniqueid       = $_POST['uniqueid'];
 	$adminuuid     	= $_POST['adminuuid'];
-	if ($mysqlcon->exec("UPDATE $dbname.config set timezone='$timezone',dateformat='$dateformat',logpath='$logpath',language='$language',upcheck='$upcheck',updateinfotime='$updateinfotime',uniqueid='$uniqueid',adminuuid='$adminuuid'") === false) {
+	if (isset($_POST['iconcheck'])) $iconcheck = 1; else $iconcheck = 0;
+	if ($mysqlcon->exec("UPDATE $dbname.config set timezone='$timezone',dateformat='$dateformat',logpath='$logpath',language='$language',upcheck='$upcheck',updateinfotime='$updateinfotime',uniqueid='$uniqueid',adminuuid='$adminuuid',iconcheck='$iconcheck'") === false) {
         $err_msg = print_r($mysqlcon->errorInfo(), true);
 		$err_lvl = 3;
     } else {
@@ -75,62 +76,70 @@ if (isset($_POST['update']) && $_SESSION['username'] == $webuser && $_SESSION['p
 				<form class="form-horizontal" data-toggle="validator" name="update" method="POST">
 					<div class="row">
 						<div class="col-md-6">
-							<div class="form-group">
-								<label class="col-sm-4 control-label" data-toggle="modal" data-target="#witimedesc"><?php echo $lang['witime']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
-								<div class="col-sm-8">
-									<select class="selectpicker show-tick form-control" data-live-search="true" name="timezone">
-									<?PHP
-									$timezonearr = DateTimeZone::listIdentifiers();
-									foreach ($timezonearr as $timez) {
-										if ($timez == $timezone) {
-											echo '<option value="'.$timezone,'" selected=selected>',$timezone,'</option>';
-										} else {
-											echo '<option value="',$timez,'">',$timez,'</option>';
-										}
-									}
-									?>
-									</select>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label" data-toggle="modal" data-target="#widaformdesc"><?php echo $lang['widaform']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
-								<div class="col-sm-8">
-									<input type="text" class="form-control" name="dateformat" value="<?php echo $timeformat; ?>">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wilogdesc"><?php echo $lang['wilog']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
-								<div class="col-sm-8 required-field-block">
-									<input type="text" class="form-control" data-pattern=".*(\/|\\)$" data-error="The Logpath must end with / or \" name="logpath" value="<?php echo $logpath; ?>" required>
-									<div class="help-block with-errors"></div>
-									<div class="required-icon"><div class="text">*</div></div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wivlangdesc"><?php echo $lang['wivlang']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
-								<div class="col-sm-8">
-									<select class="selectpicker show-tick form-control" name="languagedb">
-									<?PHP
-									echo '<option data-subtext="العربية" value="ar"'.($language === 'ar' ? ' selected="selected"' : '').'>AR</option>';
-									echo '<option data-subtext="Deutsch" value="de"'.($language === 'de' ? ' selected="selected"' : '').'>DE</option>';
-									echo '<option data-subtext="english" value="en"'.($language === 'en' ? ' selected="selected"' : '').'>EN</option>';
-									echo '<option data-subtext="français" value="fr"'.($language === 'fr' ? ' selected="selected"' : '').'>FR</option>';
-									echo '<option data-subtext="italiano" value="it"'.($language === 'it' ? ' selected="selected"' : '').'>IT</option>';
-									echo '<option data-subtext="Nederlands" value="nl"'.($language === 'nl' ? ' selected="selected"' : '').'>NL</option>';
-									echo '<option data-subtext="românesc" value="ro"'.($language === 'ro' ? ' selected="selected"' : '').'>RO</option>';
-									echo '<option data-subtext="русский" value="ru"'.($language === 'ru' ? ' selected="selected"' : '').'>RU</option>';
-									?>
-									</select>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div class="form-group">
+										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#witimedesc"><?php echo $lang['witime']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
+										<div class="col-sm-8">
+											<select class="selectpicker show-tick form-control" data-live-search="true" name="timezone">
+											<?PHP
+											$timezonearr = DateTimeZone::listIdentifiers();
+											foreach ($timezonearr as $timez) {
+												if ($timez == $timezone) {
+													echo '<option value="'.$timezone,'" selected=selected>',$timezone,'</option>';
+												} else {
+													echo '<option value="',$timez,'">',$timez,'</option>';
+												}
+											}
+											?>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#widaformdesc"><?php echo $lang['widaform']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" name="dateformat" value="<?php echo $timeformat; ?>">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wilogdesc"><?php echo $lang['wilog']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
+										<div class="col-sm-8 required-field-block">
+											<input type="text" class="form-control" data-pattern=".*(\/|\\)$" data-error="The Logpath must end with / or \" name="logpath" value="<?php echo $logpath; ?>" required>
+											<div class="help-block with-errors"></div>
+											<div class="required-icon"><div class="text">*</div></div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wivlangdesc"><?php echo $lang['wivlang']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
+										<div class="col-sm-8">
+											<select class="selectpicker show-tick form-control" name="languagedb">
+											<?PHP
+											echo '<option data-subtext="العربية" value="ar"'.($language === 'ar' ? ' selected="selected"' : '').'>AR</option>';
+											echo '<option data-subtext="Deutsch" value="de"'.($language === 'de' ? ' selected="selected"' : '').'>DE</option>';
+											echo '<option data-subtext="english" value="en"'.($language === 'en' ? ' selected="selected"' : '').'>EN</option>';
+											echo '<option data-subtext="français" value="fr"'.($language === 'fr' ? ' selected="selected"' : '').'>FR</option>';
+											echo '<option data-subtext="italiano" value="it"'.($language === 'it' ? ' selected="selected"' : '').'>IT</option>';
+											echo '<option data-subtext="Nederlands" value="nl"'.($language === 'nl' ? ' selected="selected"' : '').'>NL</option>';
+											echo '<option data-subtext="românesc" value="ro"'.($language === 'ro' ? ' selected="selected"' : '').'>RO</option>';
+											echo '<option data-subtext="русский" value="ru"'.($language === 'ru' ? ' selected="selected"' : '').'>RU</option>';
+											?>
+											</select>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<div class="form-group">
-								<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wiadmuuiddesc"><?php echo $lang['wiadmuuid']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
-								<div class="col-sm-8 required-field-block">
-									<input type="text" class="form-control" data-pattern="^([A-Za-z0-9\\\/\+]{27}=)$" data-error="Check the entered unique ID!" name="adminuuid" value="<?php echo $adminuuid; ?>" required>
-									<div class="help-block with-errors"></div>
-									<div class="required-icon"><div class="text">*</div></div>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div class="form-group">
+										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wiadmuuiddesc"><?php echo $lang['wiadmuuid']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
+										<div class="col-sm-8 required-field-block">
+											<input type="text" class="form-control" data-pattern="^([A-Za-z0-9\\\/\+]{27}=)$" data-error="Check the entered unique ID!" name="adminuuid" value="<?php echo $adminuuid; ?>" required>
+											<div class="help-block with-errors"></div>
+											<div class="required-icon"><div class="text">*</div></div>
+										</div>
+									</div>
 								</div>
 							</div>
 							<div class="panel panel-default">
@@ -164,6 +173,25 @@ if (isset($_POST['update']) && $_SESSION['username'] == $webuser && $_SESSION['p
 										<div class="col-sm-8">
 											<textarea class="form-control" data-pattern="^([A-Za-z0-9\\\/\+]{27}=,)*([A-Za-z0-9\\\/\+]{27}=)$" data-error="Check all unique IDs are correct and your list do not ends with a comma!" rows="1" name="uniqueid" maxlength="500"><?php echo $config[0]['uniqueid']; ?></textarea>
 											<div class="help-block with-errors"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">&nbsp;</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div class="form-group">
+										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wiservericondesc"><?php echo $lang['wiservericon']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
+										<div class="col-sm-8">
+											<?PHP if ($servericon == 1) {
+												echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="iconcheck" value="',$servericon,'">';
+											} else {
+												echo '<input class="switch-animate" type="checkbox" data-size="mini" name="iconcheck" value="',$servericon,'">';
+											} ?>
 										</div>
 									</div>
 								</div>
@@ -303,6 +331,22 @@ if (isset($_POST['update']) && $_SESSION['username'] == $webuser && $_SESSION['p
       </div>
       <div class="modal-body">
         <?php echo $lang['wiadmuuiddesc']; ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?PHP echo $lang['stnv0002']; ?></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="wiservericondesc" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><?php echo $lang['wiservericon']; ?></h4>
+      </div>
+      <div class="modal-body">
+        <?php echo $lang['wiservericondesc']; ?>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"><?PHP echo $lang['stnv0002']; ?></button>

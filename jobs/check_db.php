@@ -432,6 +432,11 @@ function check_db($mysqlcon,$lang,$dbname,$timezone,$currvers,$logpath) {
 					enter_logfile($logpath,$timezone,4,"    [1.2.3] Add Showtop modifyer.");
 				}
 			}
+		if($mysqlcon->exec("ALTER TABLE $dbname.config ADD (iconcheck tinyint(1) NOT NULL default '0')") === false) { } else {
+				if($mysqlcon->exec("UPDATE $dbname.config set iconcheck='0'") === false) { } else {
+					enter_logfile($logpath,$timezone,4,"    [1.2.3] Add iconcheck modifyer.");
+				}
+			}
 		}
 		$currvers = set_new_version($mysqlcon,$dbname,$timezone,$newversion,$logpath);
 		old_files($timezone,$logpath);
