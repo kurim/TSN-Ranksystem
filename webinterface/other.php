@@ -52,10 +52,7 @@ if (isset($_POST['update']) && $_SESSION['username'] == $webuser && $_SESSION['p
 	$uniqueid       = $_POST['uniqueid'];
 	$adminuuid     	= $_POST['adminuuid'];
 	$analyticsid    = $_POST['analyticsid'];
-	$pagename		= $_POST['pagename'];
-	if (isset($_POST['iconcheck'])) $iconcheck = 1; else $iconcheck = 0;
-	if (isset($_POST['analyticscheck'])) $analyticscheck = 1; else $analyticscheck = 0;
-	if ($mysqlcon->exec("UPDATE $dbname.config set timezone='$timezone',dateformat='$dateformat',logpath='$logpath',language='$language',upcheck='$upcheck',updateinfotime='$updateinfotime',uniqueid='$uniqueid',adminuuid='$adminuuid',iconcheck='$iconcheck',analyticscheck='$analyticscheck',analyticsid='$analyticsid',pagename='$pagename'") === false) {
+	if ($mysqlcon->exec("UPDATE $dbname.config set timezone='$timezone',dateformat='$dateformat',logpath='$logpath',language='$language',upcheck='$upcheck',updateinfotime='$updateinfotime',uniqueid='$uniqueid',adminuuid='$adminuuid'") === false) {
         $err_msg = print_r($mysqlcon->errorInfo(), true);
 		$err_lvl = 3;
     } else {
@@ -81,14 +78,6 @@ if (isset($_POST['update']) && $_SESSION['username'] == $webuser && $_SESSION['p
 						<div class="col-md-6">
 							<div class="panel panel-default">
 								<div class="panel-body">
-									<div class="form-group">
-										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wipagedesc"><?php echo $lang['wipage']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
-										<div class="col-sm-8 required-field-block">
-											<input type="text" class="form-control" name="pagename" value="<?php echo $pagename; ?>" >
-											<div class="help-block with-errors"></div>
-											<div class="required-icon"><div class="text">*</div></div>
-										</div>
-									</div>
 									<div class="form-group">
 										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#witimedesc"><?php echo $lang['witime']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
 										<div class="col-sm-8">
@@ -183,42 +172,6 @@ if (isset($_POST['update']) && $_SESSION['username'] == $webuser && $_SESSION['p
 										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wiupuiddesc"><?php echo $lang['wiupuid']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
 										<div class="col-sm-8">
 											<textarea class="form-control" data-pattern="^([A-Za-z0-9\\\/\+]{27}=,)*([A-Za-z0-9\\\/\+]{27}=)$" data-error="Check all unique IDs are correct and your list do not ends with a comma!" rows="1" name="uniqueid" maxlength="500"><?php echo $config[0]['uniqueid']; ?></textarea>
-											<div class="help-block with-errors"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">&nbsp;</div>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="panel panel-default">
-								<div class="panel-body">
-									<div class="form-group">
-										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wiservericondesc"><?php echo $lang['wiservericon']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
-										<div class="col-sm-8">
-											<?PHP if ($servericon == 1) {
-												echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="iconcheck" value="',$servericon,'">';
-											} else {
-												echo '<input class="switch-animate" type="checkbox" data-size="mini" name="iconcheck" value="',$servericon,'">';
-											} ?>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wianalyticsdesc"><?php echo $lang['wianalytics']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
-										<div class="col-sm-8">
-											<?PHP if ($analytics == 1) {
-												echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="analyticscheck" value="',$analytics,'">';
-											} else {
-												echo '<input class="switch-animate" type="checkbox" data-size="mini" name="analyticscheck" value="',$analytics,'">';
-											} ?>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wianalyticsiddesc"><?php echo $lang['wianalyticsid']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
-										<div class="col-sm-8">
-											<textarea class="form-control" data-pattern="^(UA-[0-9]+-[0-9]+)$" data-error="Check all unique IDs are correct and your list do not ends with a comma!" rows="1" name="analyticsid" maxlength="500"><?php echo $config[0]['analyticsid']; ?></textarea>
 											<div class="help-block with-errors"></div>
 										</div>
 									</div>
@@ -359,70 +312,6 @@ if (isset($_POST['update']) && $_SESSION['username'] == $webuser && $_SESSION['p
       </div>
       <div class="modal-body">
         <?php echo $lang['wiadmuuiddesc']; ?>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><?PHP echo $lang['stnv0002']; ?></button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="wiservericondesc" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title"><?php echo $lang['wiservericon']; ?></h4>
-      </div>
-      <div class="modal-body">
-        <?php echo $lang['wiservericondesc']; ?>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><?PHP echo $lang['stnv0002']; ?></button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="wianalyticsdesc" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title"><?php echo $lang['wianalytics']; ?></h4>
-      </div>
-      <div class="modal-body">
-        <?php echo $lang['wianalyticsdesc']; ?>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><?PHP echo $lang['stnv0002']; ?></button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="wianalyticsiddesc" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title"><?php echo $lang['wianalyticsid']; ?></h4>
-      </div>
-      <div class="modal-body">
-        <?php echo $lang['wianalyticsiddesc']; ?>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><?PHP echo $lang['stnv0002']; ?></button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="wipagedesc" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title"><?php echo $lang['wipage']; ?></h4>
-      </div>
-      <div class="modal-body">
-        <?php echo $lang['wipagedesc']; ?>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"><?PHP echo $lang['stnv0002']; ?></button>

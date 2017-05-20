@@ -83,8 +83,8 @@ require_once('nav.php');
 				<?PHP if($analytics == 1){ ?>
 				<div class="row">
 					<div class="col-lg-12">
-						<h4><strong><span class="text-info"><?PHP echo $lang['stri0020']; ?></span></strong></h4>
-						<p><?PHP echo $lang['stri0021']; ?></p>
+						<h4><strong><span class="text-info"><?PHP echo $lang['kurim0006']; ?></span></strong></h4>
+						<p><?PHP echo $lang['kurim0006desc']; ?></p>
 						<br>
 					</div>
 				</div>	

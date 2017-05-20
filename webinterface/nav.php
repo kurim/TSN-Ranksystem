@@ -122,6 +122,9 @@
 					<?PHP echo '<li'.(basename($_SERVER['SCRIPT_NAME']) == "stats.php" ? ' class="active">' : '>'); ?>
 						<a href="stats.php"><i class="fa fa-fw fa-bar-chart"></i>&nbsp;<?PHP echo $lang['winav6']; ?></a>
 					</li>
+					<?PHP echo '<li'.(basename($_SERVER['SCRIPT_NAME']) == "features.php" ? ' class="active">' : '>'); ?>
+								<a href="features.php"><i class="fa fa-fw fa-cog"></i><?PHP echo $lang['kurim0001']; ?></a>
+							</li>
 					<li class="divider"></li>
 					<?PHP echo '<li'.(basename($_SERVER['SCRIPT_NAME']) == "addon_assign_groups.php" ? ' class="active">' : '>'); ?>
 						<a href="javascript:;" data-toggle="collapse" data-target="#addons"><i class="fa fa-fw fa-puzzle-piece"></i>&nbsp;<?PHP echo $lang['winav12']; ?>&nbsp;<i class="fa fa-fw fa-caret-down"></i></a>

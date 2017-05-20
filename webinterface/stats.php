@@ -1,4 +1,4 @@
-﻿﻿<?PHP
+﻿<?PHP
 session_start();
 
 require_once('../other/config.php');
@@ -254,17 +254,17 @@ if (isset($_POST['update']) && $_SESSION['username'] == $webuser && $_SESSION['p
 											} ?>
 										</div>
 									</div>
-									<div class="row">&nbsp;</div>
-									<div class="form-group">
-										<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wishnavdesc"><?php echo $lang['wishnav']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
-										<div class="col-sm-8">
-											<?PHP if ($shownav == 1) {
-												echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="shownav" value="',$shownav,'">';
-											} else {
-												echo '<input class="switch-animate" type="checkbox" data-size="mini" name="shownav" value="',$shownav,'">';
-											} ?>
-										</div>
-									</div>
+								</div>
+							</div>
+							<div class="row">&nbsp;</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label" data-toggle="modal" data-target="#wishnavdesc"><?php echo $lang['wishnav']; ?><i class="help-hover glyphicon glyphicon-question-sign"></i></label>
+								<div class="col-sm-8">
+									<?PHP if ($shownav == 1) {
+										echo '<input class="switch-animate" type="checkbox" checked data-size="mini" name="shownav" value="',$shownav,'">';
+									} else {
+										echo '<input class="switch-animate" type="checkbox" data-size="mini" name="shownav" value="',$shownav,'">';
+									} ?>
 								</div>
 							</div>
 						</div>
