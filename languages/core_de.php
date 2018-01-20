@@ -298,20 +298,6 @@ $lang['sttw0012']			= "Andere %s User (in Stunden)";
 $lang['sttw0013']			= "mit %s Stunden aktive Zeit";
 $lang['sttm0001']			= "des Monats";
 $lang['stta0001']			= "aller Zeiten";
-<<<<<<< HEAD
-$lang['stve0001']			= "\nHallo %s,\nhier ein [B]Token[/B] um dich für das Ranksystem zu verifizieren:\n[B]%s[/B]\n\nGib diesen auf der Ranksystem-Seite in das Token-Feld ein.\n\nIgnoriere diese Nachricht, wenn du diese nicht angefordert hast. Wenn du sie öfter bekommst, kontaktiere bitte einen Admin.";
-$lang['stve0002']			= "Eine Nachricht mit dem Token wurde an dich auf dem TS3-Server gesendet.";
-$lang['stve0003']			= "Bitte gib den Token ein, den du auf dem TS3-Server erhalten hast. Wenn du keine Nachricht bekommen hast, überprüfe, ob du die richtige eindeutige ID gewählt hast.";
-$lang['stve0004']			= "Der eingegebene Token stimmt nicht überein. Bitte versuche es erneut.";
-$lang['stve0005']			= "Glückwunsch, du hast dich erfolgreich verifiziert! Du kannst jetzt fortfahren.";
-$lang['stve0006']			= "Ein unbekannter Fehler ist aufgetreten. Bitte versuche es erneut. Bitte kontaktieren einen Admin, wenn sich das Problem bestehen bleibt.";
-$lang['stve0007']			= "Verifizieren auf Teamspeak";
-$lang['stve0008']			= "1. Wähle hier deine eindeutige ID auf dem TS3-Server um dich selbst zu verifizieren.";
-$lang['stve0009']			= " -- wähle dich selbst -- ";
-$lang['stve0010']			= "2. Du erhälst einen Token auf dem TS3-Server, welchen du hier eingibst:";
-$lang['stve0011']			= "Token:";
-$lang['stve0012']			= "verifizieren";
-=======
 $lang['stve0001']			= "\nHallo %s,\nhier dein [B]Token[/B] um dich für das Ranksystem zu verifizieren:\n[B]%s[/B]\n\nTrage diesen auf der Ranksystem Website in das Feld Token ein.\n\nHast du diese Nachricht nicht angefordert, so ignoriere sie bitte. Bei wiederholtem Erhalt kontaktiere bitte einen Admin.";
 $lang['stve0002']			= "Eine Nachricht mit dem Token wurde auf dem TS3 Server an dich versandt.";
 $lang['stve0003']			= "Bitte trage den token ein, welchen du auf dem TS3 server erhalten hast. Wenn du keine Nachricht bekommen hast, überprüfe, ob du die richtige eindeutige ID gewählt hast.";
@@ -329,7 +315,6 @@ $lang['time_sec']			= "Sek.";
 $lang['time_min']			= "Min.";
 $lang['time_hour']			= "Std.";
 $lang['time_day']			= "Tag(e)";
->>>>>>> pr/1
 $lang['upinf']				= "Eine neue Version des Ranksystems ist verfügbar. Informiere Clients auf dem Server...";
 $lang['upmsg']				= "\nHey, eine neue Version des [B]Ranksystems[/B] ist verfügbar!\n\naktuelle Version: %s\n[B]neue Version: %s[/B]\n\nBitte schaue auf unsere Homepage für weitere Informationen [URL]http://ts-n.net/ranksystem.php#changelog[/URL].\n\nStarte den Update Prozess im Hintergrund. [B]Bitte prüfe die ranksystem.log![/B]";
 $lang['upsucc']				= "Datenbank-Update erfolgreich durchgeführt";

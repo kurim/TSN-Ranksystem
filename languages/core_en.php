@@ -6,11 +6,7 @@ $lang['crawl']				= "Scanning for connected users and count the activity...";
 $lang['clean']				= "Scanning for clients to delete...";
 $lang['cleanc']				= "clean clients";
 $lang['cleancdesc']			= "With this function the old clients in the Ranksystem get deleted.<br><br>To this end, the Ranksystem sychronized with the TeamSpeak database. Clients, which do not exist in TeamSpeak, will be deleted from the Ranksystem.<br><br>This function is only enabled when the 'Slowmode' is deactivated!<br><br><br>For automatic adjustment of the TeamSpeak database the ClientCleaner can be used:<br>http://ts-n.net/clientcleaner.php";
-<<<<<<< HEAD
-$lang['cleandel']			= "%s were clients deleted out of the Ranksystem database, because they were no longer existing in the TeamSpeak database.";
-=======
 $lang['cleandel']			= "%s clients were deleted out of the Ranksystem database, because they were no longer existing in the TeamSpeak database.";
->>>>>>> pr/1
 $lang['cleanno']			= "There was nothing to delete...";
 $lang['cleanp']				= "clean period";
 $lang['cleanpdesc']			= "Set a time that has to elapse before the 'clean clients' runs next.<br><br>Set a time in seconds.<br><br>Recommended is once a day, because the client cleaning needs much time for bigger databases.";
@@ -43,17 +39,11 @@ $lang['insterr4']			= "Your PHP version (%s) is below 5.5.0. Update your PHP and
 $lang['insterr5']			= "SimpleXML is needed but seems not to be available. Install <a href=\"http://php.net/manual/en/book.simplexml.php\" target=\"_blank\">simpleXML</a> and try it again!";
 $lang['insterr6']			= "PHP cURL is needed but seems not to be available. Install <a href=\"//php.net/manual/en/book.curl.php\" target=\"_blank\">PHP cURL</a> and try it again!";
 $lang['insterr7']			= "PHP Zip is needed but seems not to be available. Install <a href=\"//php.net/manual/en/book.zip.php\" target=\"_blank\">PHP Zip</a> and try it again!";
-<<<<<<< HEAD
-$lang['isntwicfg']			= "Can't save the database configuration! Please edit the 'other/dbconfig.php' with a chmod 0777 (on windows 'full access') and try again after.";
-$lang['isntwicfg2']			= "Configure Webinterface";
-$lang['isntwichm']			= "Writing permissions failed on folder \"%s\". Please assign full rights (Linux: chmod 777, Windows: 'full access') and try to start the Ranksystem again.";
-=======
 $lang['insterr8']			= "PHP COM extension (php_com_dotnet.dll) is needed but seems not to be available. Install <a href=\"//php.net/manual/en/book.com.php\" target=\"_blank\">PHP COM</a> and try it again!";
 $lang['insterr9']			= "PHP PDO MySQL extension (php_pdo_mysql.so) is needed but seems not to be available. Install <a href=\"//http://php.net/manual/en/ref.pdo-mysql.php\" target=\"_blank\">PHP PDO MySQL</a> and try it again!";
 $lang['isntwicfg']			= "Can't save the database configuration! Please assign full rights on 'other/dbconfig.php' (Linux: chmod 777; Windows: 'full access') and try again after.";
 $lang['isntwicfg2']			= "Configure Webinterface";
 $lang['isntwichm']			= "Writing permissions on folder \"%s\" are absent. Please assign full rights (Linux: chmod 777; Windows: 'full access') and try to start the Ranksystem again.";
->>>>>>> pr/1
 $lang['isntwiconf']			= "Open the %s to configure the Ranksystem!";
 $lang['isntwidbhost']		= "DB Hostaddress:";
 $lang['isntwidbhostdesc']	= "Database server address<br>(IP or DNS)";
@@ -108,11 +98,6 @@ $lang['sccrmcld']			= "User with unique Client-ID %s successfull removed from th
 $lang['sccupcount']			= "Added successfully an online time of %s seconds to the users with the unique Client-IDs (%s)";
 $lang['setontime']			= "add time";
 $lang['setontimedesc']		= "Add online time to the previous selected clients. Each user will get this time additional to their old online time.<br><br>The entered online time will be considered for the rank up and should take effect immediately.";
-<<<<<<< HEAD
-$lang['sgrpadd']			= "Grant servergroup %s to user %s (unique Client-ID: %s; Client-database-ID %s).";
-$lang['sgrprerr']			= "An error with the servergroup of the user %s occured (unique Client-ID: %s; Client-database-ID %s)!";
-$lang['sgrprm']				= "Removed servergroup %s from user %s (unique Client-ID: %s; Client-database-ID %s).";
-=======
 $lang['sgrpadd']			= "Grant servergroup %s (ID: %s) to user %s (unique Client-ID: %s; Client-database-ID %s).";
 $lang['sgrprerr']			= "An error with the servergroup of the user %s (unique Client-ID: %s; Client-database-ID %s) occured!";
 $lang['sgrprm']				= "Removed servergroup %s (ID: %s) from user %s (unique Client-ID: %s; Client-database-ID %s).";
@@ -125,7 +110,6 @@ $lang['size_pib']			= "PiB";
 $lang['size_eib']			= "EiB";
 $lang['size_zib']			= "ZiB";
 $lang['size_yib']			= "YiB";
->>>>>>> pr/1
 $lang['stag0001']			= "Assign Servergroups";
 $lang['stag0002']			= "Allowed Groups";
 $lang['stag0003']			= "Define a list of servergroups, which a user can assign himself.<br><br>The servergroups should entered here with its groupID comma seperated.<br><br>Example:<br>23,24,28";
