@@ -1,6 +1,6 @@
 <?PHP
 function check_db($mysqlcon,$lang,$dbname,$timezone,$currvers,$logpath) {
-	$newversion = '1.2.3';
+	$newversion = '9.9.9';
 	enter_logfile($logpath,$timezone,5,"Check Ranksystem database for updates.");
 	
 	function set_new_version($mysqlcon,$dbname,$timezone,$newversion,$logpath) {
